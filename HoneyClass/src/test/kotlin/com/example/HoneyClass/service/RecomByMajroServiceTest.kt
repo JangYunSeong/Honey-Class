@@ -14,9 +14,9 @@ class RecomByMajroServiceTest(
         var major = "컴퓨터학부"
         val result = recomByMajorService.recommend(major)
         for (lectureDto in result) {
-            println(lectureDto.name + " " + lectureDto.number + " " + lectureDto.professor)
+            println("lecture: " +lectureDto.name + " " + lectureDto.number + " " + lectureDto.professor)
             for (review in lectureDto.reviews) {
-                println(review.lecture_id + " " + review.professor + " " + review.review_mean)
+                println(review.lecture_id + " " + review.professor + " " + review.review_mean + " " + review.favor)
             }
         }
     }
