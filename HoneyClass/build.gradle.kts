@@ -11,6 +11,10 @@ plugins {
 	id("org.jetbrains.kotlin.plugin.allopen") version "1.4.32"
 }
 
+allOpen {
+	annotation("com.example.HoneyClass.annotation.AllOpen")
+}
+
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11

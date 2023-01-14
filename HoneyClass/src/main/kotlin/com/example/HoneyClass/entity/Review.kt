@@ -1,13 +1,17 @@
 package com.example.HoneyClass.entity
 
+import com.example.HoneyClass.annotation.AllOpen
+import com.example.HoneyClass.cumulative.Cumulative
 import com.example.HoneyClass.dto.ReviewDto
+import org.springframework.scheduling.annotation.Async
 import javax.persistence.Entity
 import javax.persistence.Id
 import javax.persistence.Table
 
 @Entity
 @Table(name = "review")
-class Review(
+@AllOpen
+open class Review(
         @Id
         var review_id : String,
         var lecture_id : String,
@@ -19,8 +23,20 @@ class Review(
         var univ_mean : Float,
         var standard_deviation : Float
 ) {
-        fun toReviewDto() : ReviewDto{
+
+        @Async
+        open fun toReviewDto() : ReviewDto{
+
+                val cumulative = Cumulative()
+
+                var zScore = (review_mean - univ_mean) / standard_deviation
+                var isPos = 1
+                if(zScore < 0) isPos = 0
+                var favor = cumulative.cumul[isPos][(zScore * 10.0F).toInt()][(zScore * 100.0F).toInt() % 10].toFloat()
+
                 return ReviewDto(review_id = review_id, lecture_id = lecture_id, professor = professor, sugang_number = sugang_number, review_number = review_number,
-                        review_mean = review_mean, univ_mean = univ_mean, standard_deviation = standard_deviation, 0F)
+                        review_mean = review_mean, univ_mean = univ_mean, standard_deviation = standard_deviation,
+                        favor = favor)
         }
+
 }
