@@ -16,7 +16,7 @@ class ReviewRepositoryTest(
         val lecId = "20221COMP0217001"
         val result = reviewRepository.findByLecture_id(lecId)
         for (review in result) {
-            println("revew id: " + review.review_id + " professor: " + review.professor + " mean: " + review.review_mean)
+            println("review id: " + review.review_id + " professor: " + review.professor + " mean: " + review.review_mean)
             assertThat(review.lecture_id).isEqualTo(lecId)
         }
     }
