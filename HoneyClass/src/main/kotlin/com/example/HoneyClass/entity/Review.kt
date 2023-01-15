@@ -31,8 +31,20 @@ open class Review(
 
                 var zScore = (review_mean - univ_mean) / standard_deviation
                 var isPos = 1
-                if(zScore < 0) isPos = 0
-                var favor = cumulative.cumul[isPos][(zScore * 10.0F).toInt()][(zScore * 100.0F).toInt() % 10].toFloat()
+                if(zScore < 0) {
+                        isPos = 0
+                        zScore *= -1.0F
+                }
+
+                var favor = 0F
+
+                if((zScore * 10.0F).toInt() > 40){
+                        if(isPos == 1) favor = 100.0F
+                        else favor = 0F
+                }
+                else{
+                        favor = cumulative.cumul[isPos][(zScore * 10.0F).toInt()][(zScore * 100.0F).toInt() % 10].toFloat()
+                }
 
                 return ReviewDto(review_id = review_id, lecture_id = lecture_id, professor = professor, sugang_number = sugang_number, review_number = review_number,
                         review_mean = review_mean, univ_mean = univ_mean, standard_deviation = standard_deviation,
