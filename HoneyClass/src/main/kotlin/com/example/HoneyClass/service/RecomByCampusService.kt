@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class RecomByMajorService(
-        @Autowired val lectureInfoRepository: LectureInfoRepository,
-        @Autowired val reviewRepository: ReviewRepository
+class RecomByCampusService(
+    @Autowired val lectureInfoRepository: LectureInfoRepository,
+    @Autowired val reviewRepository: ReviewRepository
 ) {
 
-    fun recommend(major : String) : ArrayList<LectureDto> {
-        val lectureList = lectureInfoRepository.findByOrderedMajor(major)
+    fun recommendByCampus(campus:String) : ArrayList<LectureDto>{
+        val lectureList = lectureInfoRepository.findByCategory(campus)
         return ArrayList(lectureList.map {
             it.toLectureDto(reviewRepository.findByLecture_id(it.lecture_id))
         })
