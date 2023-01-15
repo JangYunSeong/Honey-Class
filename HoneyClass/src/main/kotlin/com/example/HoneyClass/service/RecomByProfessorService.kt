@@ -12,8 +12,8 @@ class RecomByProfessorService (
     @Autowired val reviewRepository: ReviewRepository
         ){
 
-    fun recommend(professor: String) : ArrayList<LectureDto>{
-        val result = lectureInfoRepository.findByProfessor(professor)
+    fun recommend(professor: String,semester:Int) : ArrayList<LectureDto>{
+        val result = lectureInfoRepository.findByProfessor(professor,semester)
         return ArrayList(result.map {
             it.toLectureDto(reviewRepository.findByLecture_id(it.lecture_id))
         })

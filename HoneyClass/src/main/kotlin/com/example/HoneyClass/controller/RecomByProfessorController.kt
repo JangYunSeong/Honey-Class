@@ -13,7 +13,7 @@ class RecomByProfessorController (
         ){
 
     @GetMapping("/professor-lecture")
-    fun getRecomByProfessor(@RequestParam("professor") professor: String): ArrayList<LectureDto>{
-        return recomByProfessorService.recommend(professor)
+    fun getRecomByProfessor(@RequestParam("professor") professor: String,@RequestParam("semester") semester : Int): ArrayList<LectureDto>{
+        return recomByProfessorService.recommend(professor,semester)
     }
 }

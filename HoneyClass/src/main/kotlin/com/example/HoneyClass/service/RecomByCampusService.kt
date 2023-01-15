@@ -12,8 +12,8 @@ class RecomByCampusService(
     @Autowired val reviewRepository: ReviewRepository
 ) {
 
-    fun recommendByCampus(campus:String) : ArrayList<LectureDto>{
-        val lectureList = lectureInfoRepository.findByCategory(campus)
+    fun recommendByCampus(campus:String,semester:Int) : ArrayList<LectureDto>{
+        val lectureList = lectureInfoRepository.findByCategory(campus,semester)
         return ArrayList(lectureList.map {
             it.toLectureDto(reviewRepository.findByLecture_id(it.lecture_id))
         })

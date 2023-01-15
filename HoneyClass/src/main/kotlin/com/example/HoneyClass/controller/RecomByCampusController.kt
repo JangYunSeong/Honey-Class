@@ -13,7 +13,7 @@ class RecomByCampusController (
 ){
 
     @GetMapping("/campus")
-    fun getRecomByCampus(): ArrayList<LectureDto> {
-        return recomByCampusService.recommendByCampus("상주캠퍼스")
+    fun getRecomByCampus(@RequestParam("semester") semester:Int): ArrayList<LectureDto> {
+        return recomByCampusService.recommendByCampus("상주캠퍼스",semester)
     }
 }

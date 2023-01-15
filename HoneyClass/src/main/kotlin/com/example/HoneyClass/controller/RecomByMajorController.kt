@@ -13,7 +13,7 @@ class RecomByMajorController (
         ){
 
     @GetMapping("/popular-major")
-    fun getRecomByMajor(@RequestParam("major") major: String): ArrayList<LectureDto> {
-        return recomByMajorService.recommend(major)
+    fun getRecomByMajor(@RequestParam("major") major: String,@RequestParam("semester") semester : Int): ArrayList<LectureDto> {
+        return recomByMajorService.recommend(major,semester)
     }
 }

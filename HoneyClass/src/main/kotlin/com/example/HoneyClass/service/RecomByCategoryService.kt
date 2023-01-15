@@ -14,11 +14,11 @@ class RecomByCategoryService(
 
     // 전공, 교양일 경우 findByType , 나머지는 findByCategory
 
-    fun recommend(category : String) : ArrayList<LectureDto>{
+    fun recommend(category : String,semester:Int) : ArrayList<LectureDto>{
         val lectureList = if(category == "전공" || category == "교양"){
-            lectureInfoRepository.findByType(category)
+            lectureInfoRepository.findByType(category,semester)
         } else {
-            lectureInfoRepository.findByCategory(category)
+            lectureInfoRepository.findByCategory(category,semester)
         }
 
         return ArrayList(lectureList.map {

@@ -13,7 +13,7 @@ class RecomByCategoryController (
         ){
 
     @GetMapping("/getRecommend/category")
-    fun getRecomByCategory(@RequestParam("category") category : String): ArrayList<LectureDto> {
-        return recomByCategoryService.recommend(category)
+    fun getRecomByCategory(@RequestParam("category") category : String,@RequestParam("semester") semester : Int): ArrayList<LectureDto> {
+        return recomByCategoryService.recommend(category,semester)
     }
 }
