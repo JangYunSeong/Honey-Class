@@ -12,7 +12,7 @@ class RecomByCategoryController (
         @Autowired val recomByCategoryService: RecomByCategoryService
         ){
 
-    @GetMapping("/category")
+    @GetMapping("/api/category")
     fun getRecomByCategory(@RequestParam("category") category : String,@RequestParam("semester") semester : Int): ArrayList<LectureDto> {
         return recomByCategoryService.recommend(category,semester)
     }

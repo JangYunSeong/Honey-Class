@@ -29,9 +29,22 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	compileOnly ("org.projectlombok:lombok")
+	annotationProcessor ("org.projectlombok:lombok")
+
 	// MySQL connector 및 JPA
 	implementation("mysql:mysql-connector-java")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
+	// JWT
+	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("com.auth0:java-jwt:3.10.2")
+
+	implementation("org.springframework.boot:spring-boot-starter-validation")
+
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.1")
 }
 
 tasks.withType<KotlinCompile> {

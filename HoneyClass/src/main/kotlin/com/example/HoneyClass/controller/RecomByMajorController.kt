@@ -12,7 +12,7 @@ class RecomByMajorController (
     @Autowired val recomByMajorService: RecomByMajorService
         ){
 
-    @GetMapping("/popular-major")
+    @GetMapping("/api/popular-major")
     fun getRecomByMajor(@RequestParam("major") major: String,@RequestParam("semester") semester : Int): ArrayList<LectureDto> {
         return recomByMajorService.recommend(major,semester)
     }

@@ -12,7 +12,7 @@ class RecomByCampusController (
     @Autowired val recomByCampusService: RecomByCampusService
 ){
 
-    @GetMapping("/campus")
+    @GetMapping("/api/campus")
     fun getRecomByCampus(@RequestParam("semester") semester:Int): ArrayList<LectureDto> {
         return recomByCampusService.recommendByCampus("상주캠퍼스",semester)
     }

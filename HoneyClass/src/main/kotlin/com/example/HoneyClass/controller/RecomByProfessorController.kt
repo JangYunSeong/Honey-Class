@@ -12,7 +12,7 @@ class RecomByProfessorController (
     @Autowired val recomByProfessorService: RecomByProfessorService
         ){
 
-    @GetMapping("/professor-lecture")
+    @GetMapping("/api/professor-lecture")
     fun getRecomByProfessor(@RequestParam("professor") professor: String,@RequestParam("semester") semester : Int): ArrayList<LectureDto>{
         return recomByProfessorService.recommend(professor,semester)
     }

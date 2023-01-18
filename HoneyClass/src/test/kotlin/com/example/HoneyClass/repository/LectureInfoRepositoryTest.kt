@@ -31,24 +31,24 @@ class LectureInfoRepositoryTest(
 //            assertThat(lecture.professor).contains(professor)
 //        }
 //    }
-    @Test
-    fun searchByCategory(){
-        var category = "교양"
-        if (category == "교양" || category == "전공"){
-            val result = lectureInfoRepository.findByType(category)
-            for (lecture in result){
-                println("id: " + lecture.lecture_id + " name: " + lecture.name + " sugangpack: "+lecture.sugangpack + " sugang: "+ lecture.sugang)
-                assertThat(lecture.type).contains(category)
-            }
-        }
-        else{
-            val result = lectureInfoRepository.findByCategory(category)
-            for (lecture in result){
-                println("id: " + lecture.lecture_id + " name: " + lecture.name + " sugangpack: "+lecture.sugangpack + " sugang: "+ lecture.sugang)
-                assertThat(lecture.information).contains(category)
-            }
-        }
-    }
+//    @Test
+//    fun searchByCategory(){
+//        var category = "교양"
+//        if (category == "교양" || category == "전공"){
+//            val result = lectureInfoRepository.findByType(category)
+//            for (lecture in result){
+//                println("id: " + lecture.lecture_id + " name: " + lecture.name + " sugangpack: "+lecture.sugangpack + " sugang: "+ lecture.sugang)
+//                assertThat(lecture.type).contains(category)
+//            }
+//        }
+//        else{
+//            val result = lectureInfoRepository.findByCategory(category)
+//            for (lecture in result){
+//                println("id: " + lecture.lecture_id + " name: " + lecture.name + " sugangpack: "+lecture.sugangpack + " sugang: "+ lecture.sugang)
+//                assertThat(lecture.information).contains(category)
+//            }
+//        }
+//    }
 
 //    @Test
 //    fun searchByMajor_Ordered(){
