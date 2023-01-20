@@ -9,15 +9,15 @@ interface LectureInfoRepository : JpaRepository<Lecture, String> {
 
     fun findByMajor(major: String) : ArrayList<Lecture>
 
-    @Query("select l from Lecture l where l.semester=:semester and l.major = :major order by (l.sugangpack / l.sugang) DESC , (l.sugang / l.total) DESC")
+    @Query("select * from lecture where semester=:semester and major = :major order by (sugangpack / sugang) DESC LIMIT 100",nativeQuery = true)
     fun findByOrderedMajor(major: String,semester:Int) : ArrayList<Lecture>
 
-    @Query("select l from Lecture l where l.semester=:semester and l.information like %:category% order by (l.sugangpack / l.sugang) DESC , (l.sugang / l.total) DESC")
+    @Query("select * from lecture where semester=:semester and information like %:category% order by (sugangpack / sugang) DESC LIMIT 100",nativeQuery = true)
     fun findByCategory(category:String,semester:Int) : ArrayList<Lecture>
 
-    @Query("select l from Lecture l where l.semester=:semester and l.professor like %:professor% order by (l.sugangpack / l.sugang) DESC, (l.sugang / l.total) DESC")
+    @Query("select * from lecture where semester=:semester and professor like %:professor% order by (sugangpack / sugang) DESC LIMIT 100",nativeQuery = true)
     fun findByProfessor(professor:String,semester:Int) : ArrayList<Lecture>
 
-    @Query("select l from Lecture l where l.semester=:semester and l.type like %:type% order by (l.sugangpack / l.sugang) DESC")
+    @Query("select * from lecture where semester=:semester and type like %:type% order by (sugangpack / sugang) DESC LIMIT 100",nativeQuery = true)
     fun findByType(type:String,semester:Int) : ArrayList<Lecture>
 }
