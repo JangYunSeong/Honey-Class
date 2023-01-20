@@ -15,7 +15,7 @@ class RecomByProfessorService (
     fun recommend(professor: String,semester:Int) : ArrayList<LectureDto>{
         val result = lectureInfoRepository.findByProfessor(professor,semester)
         return ArrayList(result.map {
-            it.toLectureDto(reviewRepository.findByLecture_id(it.lecture_id))
+            it.toLectureDto()
         })
     }
 }

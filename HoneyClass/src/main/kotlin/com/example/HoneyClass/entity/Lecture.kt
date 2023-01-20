@@ -35,10 +35,10 @@ open class Lecture(
         var information : String){
 
         @Async
-        open fun toLectureDto(reviews: ArrayList<Review>) : LectureDto{
-                return LectureDto(number = lecture_number, year = year, semester = semester, grade = grade, type = type, college = college, major = major, name = name,
+        open fun toLectureDto() : LectureDto{
+                return LectureDto(lecture_id = lecture_id,number = lecture_number, year = year, semester = semester, grade = grade, type = type, college = college, major = major, name = name,
                 credit = credit, lecture_credit = lecture_credit, prac_credit = prac_credit, professor = professor, school_time = school_time, real_time = real_time, building = building,
-                room = room, total = total, sugang = sugang, sugangpack = sugangpack, information = information, reviews = ArrayList(reviews.map { it.toReviewDto() }))
+                room = room, total = total, sugang = sugang, sugangpack = sugangpack, information = information)
         }
 
 }
