@@ -1,6 +1,7 @@
 package com.example.HoneyClass.dto
 
 data class LectureDto(
+        var lecture_id : String,
         var number: String,
         var year: Int,
         var semester : Int,
@@ -20,6 +21,5 @@ data class LectureDto(
         var total : Int,
         var sugang : Int,
         var sugangpack : Int,
-        var information : String,
-        var reviews: ArrayList<ReviewDto>
+        var information : String
 )

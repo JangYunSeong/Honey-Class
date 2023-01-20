@@ -22,7 +22,7 @@ class RecomByCategoryService(
         }
 
         return ArrayList(lectureList.map {
-            it.toLectureDto(reviewRepository.findByLecture_id(it.lecture_id))
+            it.toLectureDto()
         })
     }
 

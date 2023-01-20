@@ -15,7 +15,7 @@ class RecomByMajorService(
     fun recommend(major : String,semester:Int) : ArrayList<LectureDto> {
         val lectureList = lectureInfoRepository.findByOrderedMajor(major,semester)
         return ArrayList(lectureList.map {
-            it.toLectureDto(reviewRepository.findByLecture_id(it.lecture_id))
+            it.toLectureDto()
         })
     }
 }

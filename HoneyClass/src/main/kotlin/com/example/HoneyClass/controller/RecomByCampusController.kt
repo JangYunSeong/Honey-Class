@@ -1,6 +1,7 @@
 package com.example.HoneyClass.controller
 
 import com.example.HoneyClass.dto.LectureDto
+import com.example.HoneyClass.entity.Lecture
 import com.example.HoneyClass.service.RecomByCampusService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
