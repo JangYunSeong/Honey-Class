@@ -20,4 +20,7 @@ interface LectureInfoRepository : JpaRepository<Lecture, String> {
 
     @Query("select * from lecture where semester=:semester and type like %:type% order by (sugangpack / sugang) DESC LIMIT 100",nativeQuery = true)
     fun findByType(type:String,semester:Int) : ArrayList<Lecture>
+
+    @Query("select * from lecture where lecture_id=:id order by (sugangpack / sugang) DESC LIMIT 100", nativeQuery = true)
+    fun findByLectureId(id:String) : ArrayList<Lecture>
 }
